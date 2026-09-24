@@ -1,10 +1,12 @@
 
 grid = document.getElementById("container")
+button = document.getElementById("Button")
 
-cellsize = 64
 
-gridheight = 4
-gridwidth = 4
+cellsize = 48
+
+gridheight = 8
+gridwidth = 8
 grid.style = "--columns: " + gridwidth.toString()
 console.log(grid.style)
 grid.style.width = (gridwidth * cellsize).toString() + "px"
@@ -21,24 +23,17 @@ function changecolor(cell){
     }
 }
 
+button.addEventListener("click", function(){
+    for(cell in cells){
+        
+    }
+})
+
 function cellclicked(cell){
     let index = cells.indexOf(cell)
+    let cellslen = cells.length
     
     changecolor(cell)
-    if(index % 4 == 0){
-        
-    } else {
-        changecolor(cells[index+1])
-    }
-    changecolor(cells[index-1])
-    
-    changecolor(cells[index-gridwidth])
-    changecolor(cells[index-gridwidth+1])
-    changecolor(cells[index-gridwidth-1])
-
-    changecolor(cells[index+gridwidth])
-    changecolor(cells[index+gridwidth+1])
-    changecolor(cells[index+gridwidth-1])
 }
 
 for(let i = 0; i < gridheight * gridwidth; i++){
